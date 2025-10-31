@@ -7,27 +7,31 @@
     <title>Card</title>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <div class="top">
-                <div class="title">
-                    <span>Title:</span>
-                    <span>Atomic Habits</span>
-                </div>
-                <div class="author">
-                    <span>Author:</span>
-                    <span>James Clare</span>
-                </div>
-                <div class="number-of-pages">
-                    <span>№ of pages:</span>
-                    <span>360</span>
-                </div>
+    <button type="button" style="display: none;">Add book</button>
+    <form action="#">
+        <div class="form">
+            <span>New Book</span>
+            <div>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" required>
             </div>
-            <div class="bottom">
-                <button type="button" class="btn read">read</button>
-                <button type="button" class="btn remove">remove</button>
+            <div>
+                <label for="author">Author</label>
+                <input type="text" name="author" id="author" required>
+            </div>
+            <div>
+                <label for="pages">No of pages</label>
+                <input type="number" name="pages" id="pages" required>
+            </div>
+            <div class="button-container">
+                <button type="button" class="submit">Submit</button>
+                <button type="button" class="cancel">Cancel</button>
             </div>
         </div>
+    </form>
+    <div class="container">
+        
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
