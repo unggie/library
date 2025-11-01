@@ -26,29 +26,43 @@ form.addEventListener('click', (event) => {
             bookCollection.forEach(book => {
                 createAppendElement(book);
             })
+            title = bookTitle.value = '';
+            author = bookAuthor.value = '';
+            pages = bookPages.value = '';
             break;
-
+            
         case "cancel" :
             form.style.display = "none";
             container.style.display = "grid";
+            title = bookTitle.value = '';
+            author = bookAuthor.value = '';
+            pages = bookPages.value = '';
             break;
         default:
             console.log("Error somewhere");
             break;
     }
-
 })
 
 container.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log(event);
     switch (event.target.id) {
+
         case "add-book":
             form.style.display = "flex";
             container.style.display = "none";
             break;
+
         case "remove":
-            // container.removeChild(event.target)
+        const card = document.querySelector(".card");
+        bookCollection.forEach(book => {
+            if (book.id == card.id) {
+                const bookIndex = bookCollection.indexOf(book);
+                bookCollection.splice(bookIndex, bookIndex + 1);
+                console.log({bookCollection});
+            }
+            createAppendElement(book);
+        })
 
             break;
         default:
@@ -77,6 +91,7 @@ function createAppendElement(book){
     const removebtn = document.createElement("button")
 
     card.classList.add("card");
+    card.setAttribute("id", `${book.id}`);
     top.classList.add("top")
     bottom.classList.add("bottom");
     title.classList.add("title");
@@ -92,6 +107,7 @@ function createAppendElement(book){
     pages.textContent = `No of pages: ${book.pages}`;
     readbtn.textContent = `read`;
     removebtn.textContent = `remove`;
+
 
     top.appendChild(title);
     top.appendChild(author);
@@ -112,6 +128,7 @@ function addBookToLibrary(title, author, pages){
     bookCollection.push(book);
 }
 
-const story = new Book('Meditations', 'Marcus Aurelius', '120');
-addBookToLibrary("48 Law of power", "Robert Greene", "659");
-createAppendElement(story);
+// const story = new Book('Meditations', 'Marcus Aurelius', '120');
+// addBookToLibrary("48 Law of power", "Robert Greene", "659");
+// createAppendElement(story);
+console.log(bookCollection);
