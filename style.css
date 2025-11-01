@@ -8,9 +8,9 @@ body{
     height: 100vh;
 }
 .container{
-    display: none;
+    display: grid;
     grid-template-columns: repeat(6, 1fr);
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 .card{
     margin: 10px auto;
@@ -62,7 +62,7 @@ body{
 
 
 .form{
-    display: flex;
+    display: none;
     margin: 50px auto;
     border: 1px solid green;
     width: 400px;
@@ -95,7 +95,7 @@ body{
     padding: 15px 0;
 }
 .submit{
-    background: green;
+    background: rgb(112, 205, 0);
 }
 .cancel{
     background: red;
@@ -113,4 +113,17 @@ input{
 input:focus{
     outline: 1px solid blue;
     border: 1px solid blue;
+}
+
+
+/* Add book button */
+.add-book{
+    width: 175px;
+    height: 205px;
+    background: rgb(112, 205, 0);
+    border: 1px solid rgb(198, 198, 198);
+    border-radius: 5px;
+    font-size: 24px;
+    color: #fff;
+    margin: 10px auto;
 }

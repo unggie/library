@@ -1,4 +1,61 @@
 const container = document.querySelector('.container');
+const submit = document.querySelector(".submit");
+const form = document.querySelector(".form")
+const bookTitle = document.querySelector("#title");
+const bookAuthor = document.querySelector("#author");
+const bookPages = document.querySelector("#pages");
+
+form.addEventListener('click', (event) => {
+    event.preventDefault();
+    let title = bookTitle.value;
+    let author = bookAuthor.value;
+    let pages = bookPages.value;
+
+    switch (event.target.id) {
+        case "submit" :
+            if (title.trim() === '' || title === null || title === undefined) {
+                alert("Can't submit empty form");
+                return;
+            }
+
+            addBookToLibrary(title, author, pages);
+        
+            form.style.display = "none";
+            container.style.display = "grid";
+            
+            bookCollection.forEach(book => {
+                createAppendElement(book);
+            })
+            break;
+
+        case "cancel" :
+            form.style.display = "none";
+            container.style.display = "grid";
+            break;
+        default:
+            console.log("Error somewhere");
+            break;
+    }
+
+})
+
+container.addEventListener('click', (event) => {
+    event.preventDefault();
+    console.log(event);
+    switch (event.target.id) {
+        case "add-book":
+            form.style.display = "flex";
+            container.style.display = "none";
+            break;
+        case "remove":
+            // container.removeChild(event.target)
+
+            break;
+        default:
+            console.log("Error somewhere in the container event handler");
+            break;
+    }
+})
 
 const bookCollection = [];
 
@@ -27,6 +84,8 @@ function createAppendElement(book){
     pages.classList.add("number-of-pages");
     readbtn.classList.add("btn", "read");
     removebtn.classList.add("btn", "remove");
+    removebtn.setAttribute("id", "remove");
+
 
     title.textContent = `Title: ${book.title}`;
     author.textContent = `Author: ${book.author}`;
@@ -48,6 +107,11 @@ function createAppendElement(book){
 
 }
 
-// const story = new Book('The meditation', 'Marcus Aurelius', '120');
-// // console.log(story);
-// createAppendElement(story);
+function addBookToLibrary(title, author, pages){
+    const book = new Book(title, author, pages);
+    bookCollection.push(book);
+}
+
+const story = new Book('Meditations', 'Marcus Aurelius', '120');
+addBookToLibrary("48 Law of power", "Robert Greene", "659");
+createAppendElement(story);
