@@ -8,6 +8,7 @@ This project demonstrates DOM manipulation, event handling, and dynamic renderin
 ## 🧭 Table of Contents
 - [Overview](#overview)
 - [Features](#features)
+- [Visual](#liveDemo)
 - [Project Structure](#project-structure)
 - [Core Logic Explained](#core-logic-explained)
   - [Book Constructor](#1-book-constructor)
@@ -41,6 +42,12 @@ Books are stored in a JavaScript array called `bookCollection`, and the DOM upda
 ✅ Remove books from the collection dynamically.  
 ✅ Real-time UI updates — no page reloads required.  
 ✅ Uses `crypto.randomUUID()` for unique book IDs.  
+
+---
+
+## Visual
+
+[live demo](https://unggie.github.io/library/)
 
 ---
 
